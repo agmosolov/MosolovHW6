@@ -7,14 +7,18 @@
 
 import UIKit
 
-class SecondScreenViewController: UIPageViewController {
+class SecondScreenViewController: UIViewController {
 
     @IBOutlet var welcomeMessageLabel: UILabel!
     @IBOutlet var logoutButton: UIButton!
     
+    var loggedInUser: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        logoutButton.layer.cornerRadius = 10
+        welcomeMessageLabel.text = "Welcome, \(loggedInUser ?? "")"
     }
     
     @IBAction func logoutButtonTapped() {
