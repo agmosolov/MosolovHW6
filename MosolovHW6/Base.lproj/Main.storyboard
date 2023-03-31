@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="UHa-Xh-TG7">
-                                <rect key="frame" x="16" y="334.66666666666669" width="361" height="182.66666666666669"/>
+                                <rect key="frame" x="16" y="209" width="361" height="182.66666666666663"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uVe-qd-0cs">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="34"/>
@@ -44,23 +44,24 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0u-vB-8YX">
-                                <rect key="frame" x="16" y="551.66666666666663" width="171.66666666666666" height="34.333333333333371"/>
+                                <rect key="frame" x="16" y="426" width="171.66666666666666" height="34.333333333333314"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Forgot User Name?" titleAlignment="leading">
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="forgotUserButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="zPv-JQ-ZyV"/>
                                     <action selector="forrgotUserButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="5NM-7p-l5E"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrh-Zg-kqE">
-                                <rect key="frame" x="217" y="551.66666666666663" width="160" height="34.333333333333371"/>
+                                <rect key="frame" x="217" y="426" width="160" height="34.333333333333314"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Forgot Password?" titleAlignment="trailing">
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="forgotPasswordButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="Das-Hu-cME"/>
+                                    <action selector="forgotPasswordButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="s1Y-E4-Yow"/>
                                     <action selector="forgotPaswordButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ous-hY-BVP"/>
                                 </connections>
                             </button>
@@ -68,9 +69,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="UHa-Xh-TG7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="2wj-L4-uo7"/>
                             <constraint firstItem="g0u-vB-8YX" firstAttribute="top" secondItem="UHa-Xh-TG7" secondAttribute="bottom" constant="34.333333333333371" id="BcQ-No-Efg"/>
                             <constraint firstItem="UHa-Xh-TG7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="QQD-2P-MaW"/>
-                            <constraint firstItem="UHa-Xh-TG7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="R4u-vX-Jqt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hrh-Zg-kqE" secondAttribute="trailing" constant="16" id="Wiu-6W-5yz"/>
                             <constraint firstItem="g0u-vB-8YX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="dUn-Ix-pC8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UHa-Xh-TG7" secondAttribute="trailing" constant="16" id="jDt-CJ-FRI"/>
@@ -103,6 +104,9 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="logoutButtonTapped" destination="aK6-xD-qdN" eventType="touchUpInside" id="HTg-Bb-2bp"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="emodji" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBR-wU-UA2">
                                 <rect key="frame" x="129" y="282" width="135" height="57"/>
@@ -122,6 +126,10 @@
                         <viewLayoutGuide key="safeArea" id="G3T-bC-5BO"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <connections>
+                        <outlet property="logoutButton" destination="YtY-Xf-cKb" id="TyA-zB-l56"/>
+                        <outlet property="welcomeMessageLabel" destination="Z9V-Vh-AWH" id="b4a-Uv-qpS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z5X-o5-Jfg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
