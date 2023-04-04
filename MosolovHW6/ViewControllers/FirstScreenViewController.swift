@@ -7,13 +7,13 @@
 
 import UIKit
 
-class FirstScreenViewController: UIViewController {
+final class FirstScreenViewController: UIViewController {
 
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     @IBOutlet var loginButton: UIButton!
     
-    let userAndPassword = [
+    let userAndPasswords = [
         "User1" : "Pas1",
         "User2" : "Pas2",
         "User3" : "Pas3"
@@ -26,10 +26,22 @@ class FirstScreenViewController: UIViewController {
     }
 
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let secondScreenVC = segue.destination as? SecondScreenViewController else { return }
+        secondScreenVC.loggedInUser = userNameTF.text
+    }
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
+    
     @IBAction func loginButtonTapped() {
         
-        if userAndPassword.keys.contains(userNameTF.text ?? "") &&
-        passwordTF.text ?? "" == userAndPassword[userNameTF.text ?? ""] {
+        if userAndPasswords.keys.contains(userNameTF.text ?? "") &&
+        passwordTF.text ?? "" == userAndPasswords[userNameTF.text ?? ""] {
             print("User name and password is correct")
         } else {
             showAlertFailedLogin()
@@ -92,10 +104,7 @@ class FirstScreenViewController: UIViewController {
     }
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let secondScreenVC = segue.destination as? SecondScreenViewController else { return }
-        secondScreenVC.loggedInUser = userNameTF.text
-    }
+
     
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
